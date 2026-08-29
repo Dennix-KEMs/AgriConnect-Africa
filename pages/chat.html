@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <div class="chat-header">
+
+    <img
+        id="chatAvatar"
+        src="../images/default-profile.png"
+        class="chat-avatar"
+    >
+
+    <div>
+
+        <h2 id="chatName"></h2>
+
+        <p id="chatRole"></p>
+
+        <small id="chatStatus"></small>
+
+    </div>
+
+</div>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="chat-page">
+      <div class="chat-header">
+        <button onclick="history.back()">← Back</button>
+
+        <div>
+          <div id="loadingChat">Loading...</div>
+
+<div id="messagesContainer"></div>
+
+          <small id="chatRole"></small>
+        </div>
+      </div>
+
+      <div id="messagesContainer" class="messages-container"></div>
+
+      <form id="messageForm" class="message-form">
+        <form id="messageForm" enctype="multipart/form-data">
+
+    <div class="chat-input-row">
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+        >
+
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Type your message..."
+        >
+
+        <button type="submit">
+            Send
+        </button>
+
+    </div>
+
+    <div id="imagePreview"></div>
+
+</form>
+    </div>
+
+    <script src="../js/chat.js"></script>
+  </body>
+</html>

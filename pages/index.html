@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriConnect Africa</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../logo 1.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a href="#home" class="brand">
+          <img
+            src="../logo%201.png"
+            width="150"
+            alt="AgriConnect Africa logo"
+            class="brand-logo"
+          />
+          <span>AgriConnect Africa</span>
+        </a>
+
+        <button
+          class="menu-btn"
+          id="menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#weather">Weather</a></li>
+          <li><a href="#marketplace">Marketplace</a></li>
+          <li><a href="#experts">Experts</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a class="header-action" href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="eyebrow">Digital agriculture marketplace</p>
+          <h1>
+            Connecting farmers, buyers, experts, and suppliers across Africa
+          </h1>
+          <p>
+            AgriConnect Africa helps producers learn, sell, find trusted buyers,
+            check weather, and access practical agricultural support.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="register.html">Join AgriConnect</a>
+            <a class="btn btn-secondary" href="#community">Explore Community</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="community">
+        <div class="section-header">
+          <p class="eyebrow">Learn Together</p>
+
+          <h2>AgriConnect Community</h2>
+
+          <p>Learn directly from farmers across Africa.</p>
+        </div>
+
+        <div class="community-layout">
+          <div class="community-main">
+            <div id="communityPreview" class="community-preview-grid">
+              <div class="loading-card">Loading latest community posts...</div>
+            </div>
+
+            <div class="community-footer">
+              <a href="community.html" class="btn btn-green">
+                View All Community Posts
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section weather-section" id="weather">
+        <div class="section-header">
+          <p class="eyebrow">Farm Intelligence Center</p>
+
+          <h2>Live Weather Across Kenya</h2>
+
+          <p>
+            Real-time weather, weekly forecasts and intelligent farming
+            recommendations.
+          </p>
+        </div>
+
+        <div class="weather-dashboard">
+          <!-- Current Weather -->
+
+          <div id="currentWeatherCard" class="weather-card">
+            <div class="weather-loading">🌤 Loading current weather...</div>
+          </div>
+
+          <!-- Weekly Forecast -->
+
+          <div id="forecastCard" class="forecast-card">
+            <div class="weather-loading">Loading forecast...</div>
+          </div>
+        </div>
+
+        <!-- Farm Intelligence -->
+
+        <div id="farmAdviceCard" class="advice-card">
+          <div class="weather-loading">Preparing farm recommendations...</div>
+        </div>
+      </section>
+
+      <section class="section muted-section" id="marketplace">
+        <div class="section-header">
+          <p class="eyebrow">Buy and sell</p>
+
+          <h2>AgriConnect Marketplace</h2>
+
+          <p>
+            Browse fresh farm produce, livestock products, agricultural supplies
+            and equipment from verified farmers and suppliers across Kenya.
+          </p>
+
+          <a href="marketplace.html" class="btn btn-green">
+            Open Marketplace
+          </a>
+        </div>
+      </section>
+
+      <section class="featured-experts" id="experts">
+        <div class="section-header">
+          <h2>Featured Agricultural Experts</h2>
+
+          <a href="experts.html">View All → </a>
+        </div>
+
+        <div id="featuredExperts" class="experts-grid">
+          <p>Loading experts...</p>
+        </div>
+      </section>
+
+      <section class="section join-section" id="join">
+        <div class="section-header">
+          <p class="eyebrow">Join the network</p>
+          <h2>Choose Your Account</h2>
+          <p>
+            Register today and become part of Africa's growing agricultural
+            community.
+          </p>
+        </div>
+        <div class="feature-grid four-columns">
+          <article class="join-card">
+            <h3>Farmer</h3>
+            <p>
+              Share farming experiences, showcase products, and connect with
+              buyers.
+            </p>
+            <a class="btn btn-green" href="register.html">Register</a>
+          </article>
+          <article class="join-card">
+            <h3>Buyer</h3>
+            <p>
+              Discover trusted producers and source quality agricultural
+              products.
+            </p>
+            <a class="btn btn-green" href="register.html">Register</a>
+          </article>
+          <article class="join-card">
+            <h3>Expert</h3>
+            <p>
+              Offer advice, consultations, and technical support to farmers.
+            </p>
+            <a class="btn btn-green" href="register.html">Register</a>
+          </article>
+          <article class="join-card">
+            <h3>Supplier</h3>
+            <p>Sell seeds, feeds, machinery, and agricultural services.</p>
+            <a class="btn btn-green" href="register.html">Register</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-header">
+          <p class="eyebrow">Contact</p>
+          <h2>Talk To AgriConnect Africa</h2>
+          <p>
+            Reach out to partner, list products, or ask about joining the
+            platform.
+          </p>
+        </div>
+        <div class="contact-panel">
+          <div class="contact-info">
+            <h3>AgriConnect Africa</h3>
+            <p>Email: hello@agriconnect.africa</p>
+            <p>Phone: +254 700 000 000</p>
+            <p>Location: Nairobi, Kenya</p>
+          </div>
+          <form class="contact-form">
+            <input
+              type="text"
+              placeholder="Your name"
+              aria-label="Your name"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              required
+            />
+            <textarea
+              placeholder="Message"
+              aria-label="Message"
+              required
+            ></textarea>
+            <button class="btn btn-green" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="locationPrompt" class="location-prompt hidden">
+      <div class="location-prompt-card">
+        <h3>🌍 Show Weather Near Me</h3>
+
+        <p>
+          Get live weather forecasts and farming advice for your current
+          location.
+        </p>
+
+        <div class="location-prompt-actions">
+          <button id="confirmLocationBtn" class="btn btn-green">
+            Show Weather Near Me
+          </button>
+
+          <button id="dismissLocationBtn" class="btn btn-secondary">
+            Maybe Later
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <h2>Ready to grow with AgriConnect Africa?</h2>
+      <p>
+        Join farmers, buyers, experts, and suppliers building stronger food
+        systems.
+      </p>
+      <a class="btn btn-primary" href="register.html">Join The Community</a>
+      <small>&copy; 2026 AgriConnect Africa. All Rights Reserved.</small>
+    </footer>
+
+    <script src="../index.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/communityPreview.js"></script>
+    <script src="../js/weather.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>

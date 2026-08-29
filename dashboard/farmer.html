@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmer Profile | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+<header>
+
+  <div class="dashboard-header-main">
+
+    <div>
+      <h1>AgriConnect Africa</h1>
+
+      <h2 id="welcome"></h2>
+
+      <p id="activeWorkspace">
+        Farmer Workspace
+      </p>
+    </div>
+
+<div class="dashboard-header-actions">
+
+  <div class="role-switcher">
+
+    <label for="roleSelector">
+      Switch Workspace:
+    </label>
+
+    <select id="roleSelector"></select>
+
+  </div>
+
+
+  <button
+    id="logoutBtn"
+    class="btn"
+    type="button"
+  >
+    Logout
+  </button>
+
+</div>
+
+  </div>
+
+
+  <nav class="dashboard-nav">
+
+    <a
+      id="notificationsLink"
+      href="../pages/notifications.html"
+    >
+      Notifications
+    </a>
+
+
+    <a
+      id="incomingOrdersLink"
+      href="../pages/incoming-orders.html"
+    >
+      View Incoming Orders
+    </a>
+
+
+    <a
+      id="nearbyUsersLink"
+      href="../pages/nearby-users.html"
+    >
+      Nearby Farmers & Buyers
+    </a>
+
+
+    <a
+      id="profileLink"
+      href="../pages/profile.html"
+    >
+      Profile
+    </a>
+
+
+    <a
+      id="messagesLink"
+      href="../pages/messages.html"
+    >
+      Messages
+      <span id="unreadBadge"></span>
+    </a>
+
+    <a href="../pages/account.html">
+  👤 My Account
+</a>
+
+  </nav>
+
+</header>
+
+
+    <main>
+
+        <!-- PERSONALIZED WEATHER -->
+
+<section
+    class="dashboard-section"
+    id="weatherSection">
+
+    <h2>🌤 My Farm Weather</h2>
+
+    <div class="weather-dashboard">
+
+        <!-- Current Weather -->
+
+        <div
+            id="dashboardCurrentWeather"
+            class="dashboard-card weather-card">
+
+            Loading weather...
+
+        </div>
+
+        <!-- Weekly Forecast -->
+
+        <div
+            id="dashboardForecast"
+            class="dashboard-card">
+
+            Loading forecast...
+
+        </div>
+
+    </div>
+
+    <!-- Smart Advice -->
+
+    <div
+        id="dashboardFarmAdvice"
+        class="dashboard-card">
+
+        Loading farm intelligence...
+
+    </div>
+
+    <!-- Alerts -->
+
+    <div
+        id="dashboardWeatherAlerts"
+        class="dashboard-card weather-alert-card">
+
+        No alerts.
+
+    </div>
+
+</section>
+
+      <div class="dashboard-card farmer-profile-card">
+
+    <div class="profile-top">
+
+        <img
+            id="profileCardImage"
+            src="../images/default-profile.png"
+            alt="Profile"
+            class="profile-avatar"
+        >
+
+        <div>
+
+            <h2 id="profileCardName"></h2>
+
+            <p id="profileCardType"></p>
+
+            <p id="profileCardLocation"></p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p id="profileCardBio"></p>
+
+    <div class="profile-stats">
+
+        <div>
+
+            <strong id="profilePosts">0</strong>
+
+            <span>Posts</span>
+
+        </div>
+
+        <div>
+
+            <strong id="profileProducts">0</strong>
+
+            <span>Products</span>
+
+        </div>
+
+        <div>
+
+            <strong id="profileLearningScore">0</strong>
+            
+            <span>Learning</span>
+
+        </div>
+
+        <div>
+
+            <strong id="profileViews">0</strong>
+
+            <span>Views</span>
+
+        </div>
+
+        <div>
+
+            <strong id="profileHelpful">0</strong>
+
+            <span>Helpful</span>
+
+        </div>
+
+         <div class="community-badge">
+
+    <span id="profileLevel"></span>
+
+</div>
+        
+
+    </div>
+    
+
+</div>
+
+
+
+
+
+      <!-- COMMUNITY HUB -->
+
+      <section
+    class="dashboard-section"
+    id="communitySection">
+        <h2>🌱 Community Hub</h2>
+
+         <div class="dashboard-card">
+
+       
+
+        <p>Share your farming journey and help other farmers learn.</p>
+
+        <div id="ownerCommunityTools">
+
+    <button
+        id="openCommunityForm"
+        class="btn btn-green">
+
+        Create Community Post
+
+    </button>
+
+    <div id="communityPostFormContainer"></div>
+
+</div>
+
+
+<section id="myCommunityPostsSection">
+
+    <h2 id="communityPostsHeading">
+
+📚 Community Posts
+
+</h2>
+
+    <div id="myCommunityPosts">
+
+        <p>Loading your posts...</p>
+
+    </div>
+
+</section>
+<section class="dashboard-card">
+
+    <h2>🌱 Farmer Community Impact</h2>
+
+    <div id="communitySummary">
+
+        Loading...
+
+    </div>
+
+</section>
+
+</section>
+
+
+      </section>
+
+      <!-- MARKETPLACE -->
+
+      <section
+    class="dashboard-section"
+    id="marketplaceSection"
+>
+
+    <div id="ownerMarketplaceTools">
+
+        <h2>🛒 Marketplace</h2>
+
+        <h3>Upload Product</h3>
+
+        <form id="productForm">
+          <input
+            type="text"
+            id="productName"
+            placeholder="Product Name"
+            required
+          />
+
+          <input type="text" id="category" placeholder="Category" required />
+
+          <textarea
+            id="description"
+            placeholder="Description"
+            required
+          ></textarea>
+
+          <input type="number" id="price" placeholder="Price" required />
+
+          <input type="number" id="quantity" placeholder="Quantity" required />
+
+          <input type="file" id="productImage" accept="image/*" />
+
+          <button type="submit">Upload Product</button>
+        </form>
+
+        <div id="uploadMessage"></div>
+        </div>
+
+        <hr />
+
+        <h3 id="productsHeading">
+
+Marketplace Products
+
+</h3>
+
+        <button id="loadProductsBtn">Refresh Products</button>
+
+        <div id="productsContainer"></div>
+      </section>
+
+      <!-- SERVICES -->
+
+      <section
+    class="dashboard-section"
+    id="servicesSection">
+        <h2>👨‍🌾 Services</h2>
+
+        <div class="dashboard-card">
+          <h3>Agricultural Experts</h3>
+
+          <p>Book consultations with agricultural experts.</p>
+
+          <button onclick="location.href = '../pages/experts.html'">
+            View Experts
+          </button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Messages</h3>
+
+          <p>Talk with buyers.</p>
+
+          <button onclick="location.href = '../pages/messages.html'">
+            Open Messages
+          </button>
+        </div>
+
+        <div class="dashboard-card">
+            
+
+    <h3>My Consultations 👨‍⚕️ </h3>
+
+    <p>
+        View consultation requests, track their status and read expert recommendations.
+    </p>
+
+    <button
+        onclick="window.location.href='../pages/myBookings.html'"
+    >
+        View Consultations
+    </button>
+
+</div>
+
+      </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+<script src="../js/authGuard.js"></script>
+<script src="../js/roleManager.js"></script>
+<script src="../js/farmerDashboard.js"></script>
+<script src="../js/dashboardWeather.js"></script>
+<script src="../js/communityDashboard.js"></script>
+  </body>
+</html>

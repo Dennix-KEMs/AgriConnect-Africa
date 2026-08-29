@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Administrator Management | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>AgriConnect Africa</h1>
+
+      <div class="admin-page-header">
+        <div>
+          <h2>Administrator Management</h2>
+
+          <p>Manage administrator accounts, permissions and access.</p>
+        </div>
+
+        <button id="backToDashboardBtn" type="button">Back to Dashboard</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================================================= -->
+      <!-- ADMINISTRATORS -->
+      <!-- ================================================= -->
+
+      <section class="admin-management-section">
+        <div class="section-header">
+          <div>
+            <h2>Administrators</h2>
+
+            <p>Manage AgriConnect administrator accounts and their access.</p>
+          </div>
+
+          <button
+            id="createAdministratorBtn"
+            class="btn btn-green"
+            type="button"
+          >
+            + Add Administrator
+          </button>
+        </div>
+
+        <div id="administratorMessage" class="admin-message"></div>
+
+        <div class="table-responsive">
+          <table id="administratorsTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Phone</th>
+
+                <th>Level</th>
+
+                <th>Status</th>
+
+                <th>Permissions</th>
+
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td colspan="7" class="loading-message">
+                  Loading administrators...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- PERMISSION PANEL -->
+      <!-- ================================================= -->
+
+      <section
+        id="permissionPanel"
+        class="admin-management-section"
+        style="display: none"
+      >
+        <div class="section-header">
+          <div>
+            <h2>Administrator Permissions</h2>
+
+            <p id="permissionAdminName">Select an administrator.</p>
+          </div>
+        </div>
+
+        <div id="permissionMessage" class="admin-message"></div>
+
+        <div id="permissionsContainer" class="permissions-grid">
+          <p class="loading-message">Loading permissions...</p>
+        </div>
+
+        <div class="permission-actions">
+          <button id="savePermissionsBtn" class="btn btn-green" type="button">
+            Save Permissions
+          </button>
+
+          <button id="cancelPermissionsBtn" type="button">Cancel</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================================================== -->
+<!-- CREATE ADMINISTRATOR MODAL -->
+<!-- ===================================================== -->
+
+<div
+  id="createAdministratorModal"
+  class="admin-modal"
+  style="display: none"
+>
+  <div class="admin-modal-content">
+
+<div class="admin-modal-header">
+
+  <h2>Create Administrator</h2>
+
+  <button
+    id="closeCreateAdministratorBtn"
+    type="button"
+  >
+  </button>
+
+</div>
+
+<form id="createAdministratorForm">
+
+  <div class="form-group">
+
+    <label for="adminFullName">
+      Full Name
+    </label>
+
+    <input
+      type="text"
+      id="adminFullName"
+      required
+    />
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="adminEmail">
+      Email
+    </label>
+
+    <input
+      type="email"
+      id="adminEmail"
+      required
+    />
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="adminPhone">
+      Phone
+    </label>
+
+    <input
+      type="text"
+      id="adminPhone"
+      required
+    />
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="adminPassword">
+      Temporary Password
+    </label>
+
+    <input
+      type="password"
+      id="adminPassword"
+      autocomplete="new-password"
+      required
+    />
+
+  </div>
+
+  <div
+    id="createAdministratorError"
+    class="admin-error"
+  ></div>
+
+  <div class="admin-modal-actions">
+
+    <button
+      type="submit"
+      class="btn btn-green"
+    >
+      Create Administrator
+    </button>
+
+    <button
+      type="button"
+      id="cancelCreateAdministratorBtn"
+    >
+      Cancel
+    </button>
+
+  </div>
+
+</form>
+
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- RESET ADMINISTRATOR PASSWORD MODAL -->
+<!-- ===================================================== -->
+
+<div
+  id="resetAdministratorPasswordModal"
+  class="admin-modal"
+  style="display: none"
+>
+  <div class="admin-modal-content">
+
+<div class="admin-modal-header">
+
+  <h2>
+    Reset Administrator Password
+  </h2>
+
+  <button
+    id="closeResetPasswordBtn"
+    type="button"
+  >
+  </button>
+
+</div>
+
+<p id="resetPasswordAdminName">
+  Reset password for administrator
+</p>
+
+<form
+  id="resetAdministratorPasswordForm"
+>
+
+  <div class="form-group">
+
+    <label
+      for="administratorNewPassword"
+    >
+      New Password
+    </label>
+
+    <input
+      type="password"
+      id="administratorNewPassword"
+      autocomplete="new-password"
+      required
+    />
+
+  </div>
+
+  <!-- ================================================= -->
+  <!-- PASSWORD REQUIREMENTS -->
+  <!-- ================================================= -->
+
+  <div
+    id="adminPasswordRequirements"
+    class="password-requirements"
+  >
+    <p>
+      Password must contain:
+    </p>
+
+    <ul>
+
+      <li id="adminReqLength">
+        At least 10 characters
+      </li>
+
+      <li id="adminReqUppercase">
+        One uppercase letter
+      </li>
+
+      <li id="adminReqLowercase">
+        One lowercase letter
+      </li>
+
+      <li id="adminReqNumber">
+        One number
+      </li>
+
+      <li id="adminReqSpecial">
+        One special character
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div
+    id="resetAdministratorPasswordError"
+    class="admin-error"
+  ></div>
+
+  <div class="admin-modal-actions">
+
+    <button
+      type="submit"
+      id="resetAdministratorPasswordBtn"
+      class="btn btn-green"
+      disabled
+    >
+      Reset Password
+    </button>
+
+    <button
+      type="button"
+      id="cancelResetPasswordBtn"
+    >
+      Cancel
+    </button>
+
+  </div>
+
+</form>
+
+  </div>
+
+</div>
+
+    </div>
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/adminAdministrators.js"></script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Consultations</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>AgriConnect Africa</h1>
+
+      <nav class="dashboard-nav">
+        <a href="farmer.html"> Dashboard </a>
+
+        <a href="notifications.html"> Notifications </a>
+
+        <a href="messages.html"> Messages </a>
+
+        <a href="profile.html"> Profile </a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>My Consultations</h2>
+
+        <p>
+          Track your consultation requests, view expert advice and monitor your
+          consultation history.
+        </p>
+      </section>
+
+      <section id="bookingContainer">
+        <p>Loading consultations...</p>
+      </section>
+    </main>
+
+    <!-- Consultation Notes Modal -->
+
+    <div id="notesModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeNotesModal()"> &times; </span>
+
+        <h2>Consultation Notes</h2>
+
+        <h3 id="expertName"></h3>
+
+        <p id="expertSpecialization"></p>
+
+        <textarea id="notesContent" rows="12" readonly></textarea>
+      </div>
+    </div>
+
+    <div id="expertReviewSection" style="display: none">
+      <h3>Write a Review</h3>
+
+      <select id="expertRating">
+        <option value="5">★★★★★</option>
+
+        <option value="4">★★★★☆</option>
+
+        <option value="3">★★★☆☆</option>
+
+        <option value="2">★★☆☆☆</option>
+
+        <option value="1">★☆☆☆☆</option>
+      </select>
+
+      <br /><br />
+
+      <textarea
+        id="expertReview"
+        placeholder="Share your consultation experience..."
+        rows="5"
+      ></textarea>
+
+      <br /><br />
+
+      <button onclick="submitExpertReview()">Submit Review</button>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/authGuard.js"></script>
+    <script src="../js/myBookings.js"></script>
+
+    <div id="reviewModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeReviewModal()"> &times; </span>
+
+        <h2>Rate Your Consultation</h2>
+
+        <input type="hidden" id="reviewBookingId" />
+
+        <div class="rating-stars">
+          <span onclick="setRating(1)">★</span>
+          <span onclick="setRating(2)">★</span>
+          <span onclick="setRating(3)">★</span>
+          <span onclick="setRating(4)">★</span>
+          <span onclick="setRating(5)">★</span>
+        </div>
+
+        <textarea
+          id="reviewText"
+          rows="5"
+          placeholder="Tell other farmers about your consultation..."
+        ></textarea>
+
+        <br /><br />
+
+        <button onclick="submitExpertReview()">Submit Review</button>
+      </div>
+    </div>
+  </body>
+</html>

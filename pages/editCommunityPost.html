@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Community Post</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>🌱 Edit Community Post</h1>
+    </header>
+
+    <main>
+      <div class="dashboard-card">
+        <form id="editPostForm">
+          <label>Category</label>
+
+          <select id="communityCategory" required></select>
+
+          <label>Title</label>
+
+          <input id="communityTitle" required />
+
+          <label>Content</label>
+
+          <textarea id="communityContent" rows="8" required> </textarea>
+
+          <label>Visibility</label>
+
+          <select id="communityVisibility">
+            <option value="public">Public</option>
+
+            <option value="followers">Followers</option>
+          </select>
+
+          <label>Replace Images (optional)</label>
+
+          <input type="file" id="communityImages" multiple accept="image/*" />
+
+          <label>Replace Video (optional)</label>
+
+          <input type="file" id="communityVideo" accept="video/*" />
+
+          <br /><br />
+
+          <button type="submit" id="updatePostBtn">Update Post</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/editCommunityPost.js"></script>
+  </body>
+</html>

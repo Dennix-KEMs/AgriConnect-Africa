@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Edit Profile</h1>
+
+    <form id="profileForm">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+
+      <input type="text" id="phone" placeholder="Phone" required />
+
+      <input type="text" id="county" placeholder="County" />
+
+      <input type="text" id="subcounty" placeholder="Subcounty" />
+
+      <input type="text" id="ward" placeholder="Ward" />
+
+      <input
+        type="text"
+        id="business_name"
+        placeholder="Business / Farm Name"
+      />
+
+      <input type="text" id="farm_type" placeholder="Farm Type" />
+
+      <input type="text" id="crops" placeholder="Crops" />
+
+      <input type="text" id="livestock" placeholder="Livestock" />
+
+      <input type="text" id="specialization" placeholder="Specialization" />
+
+      <textarea id="bio" placeholder="Bio"></textarea>
+
+      <button type="submit">Save Profile</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script src="../js/edit-profile.js"></script>
+  </body>
+</html>

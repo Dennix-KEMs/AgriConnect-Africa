@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>AgriConnect Marketplace</h1>
+
+    <div class="marketplace-filters">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+      </select>
+
+      <select id="countyFilter">
+        <option value="">All Counties</option>
+      </select>
+
+      <select id="stockFilter">
+        <option value="">All Products</option>
+
+        <option value="available">In Stock</option>
+
+        <option value="low">Low Stock</option>
+
+        <option value="out">Out of Stock</option>
+      </select>
+
+      <select id="sortFilter">
+        <option value="newest">Newest</option>
+
+        <option value="priceAsc">Price: Low → High</option>
+
+        <option value="priceDesc">Price: High → Low</option>
+
+        <option value="name">Product Name</option>
+      </select>
+    </div>
+
+    <div id="productsContainer">Loading products...</div>
+    <div id="pagination"></div>
+
+    <script src="../js/marketplace.js"></script>
+  </body>
+</html>

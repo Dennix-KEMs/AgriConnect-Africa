@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Checkout | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="page-header">
+      <h1>Checkout</h1>
+
+      <p>Review your order before payment.</p>
+    </header>
+
+    <main class="checkout-container">
+      <section class="delivery-section">
+        <h2>Delivery Information</h2>
+
+        <form id="checkoutForm">
+          <label>Full Name</label>
+
+          <input type="text" id="fullName" required />
+
+          <label>Phone Number</label>
+
+          <input type="tel" id="phone" required />
+
+          <label>County</label>
+
+          <input type="text" id="county" required />
+
+          <label>Subcounty</label>
+
+          <input type="text" id="subcounty" />
+
+          <label>Ward</label>
+
+          <input type="text" id="ward" />
+
+          <label>Delivery Address</label>
+
+          <textarea id="address" rows="4" required></textarea>
+        </form>
+      </section>
+
+      <section class="summary-section">
+        <h2>Order Summary</h2>
+
+        <div id="checkoutItems">Loading...</div>
+
+        <hr />
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+
+          <span id="subtotal"> KES 0 </span>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+
+          <span id="deliveryFee"> KES 0 </span>
+        </div>
+
+        <div class="summary-row total">
+          <strong>Total</strong>
+
+          <strong id="grandTotal"> KES 0 </strong>
+        </div>
+
+        <button id="placeOrderBtn" class="primary-btn">
+          Continue to Payment
+        </button>
+      </section>
+    </main>
+
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>

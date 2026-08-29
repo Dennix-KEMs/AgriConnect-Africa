@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Buyer Dashboard | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="dashboard-header-main">
+        <div>
+          <h1>AgriConnect Africa</h1>
+
+          <h2 id="welcome">Welcome</h2>
+
+          <p id="roleDisplay">🛒 Buyer Workspace</p>
+        </div>
+
+        <div class="dashboard-header-actions">
+          <div class="role-switcher">
+            <label for="roleSelector"> Switch Workspace: </label>
+
+            <select id="roleSelector"></select>
+          </div>
+
+          <button id="logoutBtn" class="btn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+      <nav class="dashboard-nav">
+        <a href="../pages/notifications.html"> Notifications </a>
+
+        <a href="../pages/nearby-users.html"> Nearby Farmers & Buyers </a>
+
+        <a href="../pages/profile.html"> Profile </a>
+
+        <a href="../pages/messages.html">
+          Messages
+
+          <span id="unreadBadge"></span>
+        </a>
+
+        <a href="../pages/account.html"> 👤 My Account </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ========================= -->
+      <!-- BUYER OVERVIEW -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>🛒 Buyer Dashboard</h2>
+
+        <div id="locationInfo"></div>
+
+        <div class="dashboard-cards">
+          <div class="card">
+            <h3>Marketplace</h3>
+
+            <p>Browse agricultural products from farmers and suppliers.</p>
+
+            <button onclick="scrollToMarketplace()">Browse Products</button>
+          </div>
+
+          <div class="card">
+            <h3>📦 My Orders</h3>
+
+            <p>Track your purchases and order history.</p>
+
+            <button onclick="window.location.href = '../pages/my-orders.html'">
+              View Orders
+            </button>
+          </div>
+
+          <div class="card">
+            <h3>❤️ Saved Products</h3>
+
+            <p>Products you saved for later.</p>
+
+            <button
+              onclick="window.location.href = '../pages/savedProducts.html'"
+            >
+              View Saved
+            </button>
+          </div>
+
+          <div class="card">
+            <h3>💬 Messages</h3>
+
+            <p>Communicate with farmers and suppliers.</p>
+
+            <button onclick="window.location.href = '../pages/messages.html'">
+              Open Messages
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- MARKETPLACE -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="marketplaceSection">
+        <h2>🛒 Marketplace</h2>
+
+        <p>
+          Discover agricultural products available from across AgriConnect
+          Africa.
+        </p>
+
+        <div id="productsContainer">Loading products...</div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- WEATHER -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="weatherSection">
+        <h2>🌤 Local Weather</h2>
+
+        <div class="dashboard-card">
+          <p>Weather information for your registered location.</p>
+
+          <div id="buyerWeather">Loading weather...</div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- NEARBY USERS -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>📍 Nearby AgriConnect Users</h2>
+
+        <div class="dashboard-card">
+          <p>Discover farmers, buyers, suppliers and experts near you.</p>
+
+          <button onclick="window.location.href = '../pages/nearby-users.html'">
+            Explore Nearby Users
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- BUYER ACCOUNT -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>👤 My Buyer Account</h2>
+
+        <div class="dashboard-card">
+          <p>
+            Manage your personal information, location and account settings.
+          </p>
+
+          <button onclick="window.location.href = '../pages/profile.html'">
+            Manage Profile
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/buyerDashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Profile | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+
+  <body>
+    <div class="profile-page">
+      <!-- ================================================= -->
+      <!-- PROFILE -->
+      <!-- ================================================= -->
+
+      <div class="profile-card">
+        <h1>My Profile</h1>
+
+        <div id="profileContainer"></div>
+
+        <!-- ================================================= -->
+        <!-- PROFILE EDIT FORM -->
+        <!-- ================================================= -->
+
+        <form id="profileForm" class="profile-form">
+          <div id="dynamicProfileFields"></div>
+
+          <div class="profile-section">
+            <textarea id="bio" placeholder="About You"></textarea>
+
+            <button type="submit" class="btn-green">Save Profile</button>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- PROFILE IMAGE -->
+          <!-- ================================================= -->
+
+          <div class="profile-image-section">
+            <h3>Profile Picture</h3>
+
+            <div class="upload-section">
+              <input type="file" id="profileImage" accept="image/*" />
+
+              <button type="button" id="uploadBtn" class="btn-green">
+                Upload Image
+              </button>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- EDIT PROFILE -->
+          <!-- ================================================= -->
+
+          <div class="profile-actions">
+            <button
+              type="button"
+              class="edit-btn"
+              onclick="window.location.href = 'edit-profile.html'"
+            >
+              Edit Profile
+            </button>
+          </div>
+        </form>
+
+        <div id="message"></div>
+      </div>
+
+      <!-- ================================================= -->
+      <!-- ADMIN SECURITY -->
+      <!-- ================================================= -->
+
+      <section
+        id="adminSecuritySection"
+        class="security-section"
+        style="display: none"
+      >
+        <div class="section-header">
+          <div>
+            <h2>Password & Security</h2>
+
+            <p>
+              Change your administrator password and keep your AgriConnect
+              account secure.
+            </p>
+          </div>
+
+          <span class="security-badge"> 🔐 Secure </span>
+        </div>
+
+        <form id="changePasswordForm">
+          <!-- ============================================= -->
+          <!-- CURRENT PASSWORD -->
+          <!-- ============================================= -->
+
+          <div class="form-group">
+            <label for="currentPassword"> Current Password </label>
+
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="currentPassword"
+                name="currentPassword"
+                autocomplete="current-password"
+                required
+              />
+
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="currentPassword"
+                aria-label="Show current password"
+              >
+                👁
+              </button>
+            </div>
+          </div>
+
+          <!-- ============================================= -->
+          <!-- NEW PASSWORD -->
+          <!-- ============================================= -->
+
+          <div class="form-group">
+            <label for="newPassword"> New Password </label>
+
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="newPassword"
+                name="newPassword"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+
+              
+
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="newPassword"
+                aria-label="Show new password"
+              >
+                👁
+              </button>
+            </div>
+
+            
+
+            
+          </div>
+
+          <!-- ============================================= -->
+          <!-- CONFIRM PASSWORD -->
+          <!-- ============================================= -->
+
+          <div class="form-group">
+            <label for="confirmPassword"> Confirm New Password </label>
+
+            <div class="password-input-wrapper">
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="confirmPassword"
+                aria-label="Show password"
+              >
+                👁
+              </button>
+            </div>
+
+            <div id="passwordMatchMessage" class="password-match-message"></div>
+          </div>
+
+          <div class="password-requirements">
+
+  <p>Password must contain:</p>
+
+  <ul>
+    <li>At least 10 characters</li>
+    <li>One uppercase letter</li>
+    <li>One lowercase letter</li>
+    <li>One number</li>
+    <li>One special character (@, #, $, %, !)</li>
+  </ul>
+
+</div>
+
+          <!-- ============================================= -->
+          <!-- MESSAGE -->
+          <!-- ============================================= -->
+
+          <div id="passwordMessage" class="admin-message" role="alert"></div>
+
+          <!-- ============================================= -->
+          <!-- ACTION -->
+          <!-- ============================================= -->
+
+          <div class="security-actions">
+            <button
+              type="submit"
+              id="changePasswordBtn"
+              class="save-password-btn"
+            >
+              Change Password
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- PRODUCTS -->
+      <!-- ================================================= -->
+
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/profile.js"></script>
+  </body>
+</html>

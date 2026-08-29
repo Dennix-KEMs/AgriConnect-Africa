@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Financial & Transaction Center</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="admin-page-header">
+      <div>
+        <h1>AgriConnect Africa</h1>
+        <p>Financial & Transaction Center</p>
+      </div>
+
+      <button onclick="window.location.href = '../dashboard/admin.html'">
+        Back to Dashboard
+      </button>
+    </header>
+
+    <main class="admin-revenue-container">
+      <!-- ================================================= -->
+      <!-- PAGE TITLE -->
+      <!-- ================================================= -->
+
+      <section class="page-introduction">
+        <h2>Financial Overview</h2>
+
+        <p>
+          Monitor marketplace transactions, revenue, order activity and
+          financial performance.
+        </p>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- FINANCIAL SUMMARY -->
+      <!-- ================================================= -->
+
+      <section class="revenue-summary-grid">
+        <div class="dashboard-card revenue-card">
+          <h3>Gross Transaction Value</h3>
+
+          <p id="grossTransactionValue">KES 0</p>
+
+          <small> Total value of all transactions </small>
+        </div>
+
+        <div class="dashboard-card revenue-card">
+          <h3>Completed Revenue</h3>
+
+          <p id="completedRevenue">KES 0</p>
+
+          <small> Delivered orders </small>
+        </div>
+
+        <div class="dashboard-card revenue-card">
+          <h3>Pending Value</h3>
+
+          <p id="pendingRevenue">KES 0</p>
+
+          <small> Pending transactions </small>
+        </div>
+
+        <div class="dashboard-card revenue-card">
+          <h3>Cancelled Value</h3>
+
+          <p id="cancelledRevenue">KES 0</p>
+
+          <small> Cancelled transactions </small>
+        </div>
+
+        <div class="dashboard-card revenue-card">
+          <h3>Total Transactions</h3>
+
+          <p id="totalTransactions">0</p>
+
+          <small> Marketplace orders </small>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- TRANSACTION FILTERS -->
+      <!-- ================================================= -->
+
+      <section class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Transaction Explorer</h2>
+
+            <p>Search and filter marketplace transactions.</p>
+          </div>
+        </div>
+
+        <div class="transaction-filters">
+          <div class="filter-group">
+            <label for="transactionSearch"> Search </label>
+
+            <input
+              type="text"
+              id="transactionSearch"
+              placeholder="Order ID, buyer, seller or product..."
+            />
+          </div>
+
+          <div class="filter-group">
+            <label for="transactionStatus"> Status </label>
+
+            <select id="transactionStatus">
+              <option value="all">All Statuses</option>
+
+              <option value="pending">Pending</option>
+
+              <option value="accepted">Accepted</option>
+
+              <option value="processing">Processing</option>
+
+              <option value="shipped">Shipped</option>
+
+              <option value="delivered">Delivered</option>
+
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="dateFrom"> From </label>
+
+            <input type="date" id="dateFrom" />
+          </div>
+
+          <div class="filter-group">
+            <label for="dateTo"> To </label>
+
+            <input type="date" id="dateTo" />
+          </div>
+
+          <button id="applyFiltersBtn" class="btn btn-green">
+            Apply Filters
+          </button>
+
+          <button id="clearFiltersBtn" class="btn">Clear</button>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- TRANSACTION ACTIONS -->
+      <!-- ================================================= -->
+
+      <section class="admin-panel">
+        <div class="transaction-actions">
+          <div>
+            <strong id="transactionCount"> 0 transactions </strong>
+          </div>
+
+          <div class="export-actions">
+            <button id="exportCSVBtn">Export CSV</button>
+
+            <button id="exportPDFBtn">Export PDF</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- TRANSACTION TABLE -->
+      <!-- ================================================= -->
+
+      <section class="admin-panel">
+        <div class="table-responsive">
+          <table id="revenueTransactionsTable" class="admin-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+
+                <th>Buyer</th>
+
+                <th>Seller</th>
+
+                <th>Product</th>
+
+                <th>Quantity</th>
+
+                <th>Amount</th>
+
+                <th>Status</th>
+
+                <th>Date</th>
+              </tr>
+            </thead>
+
+            <tbody id="transactionsBody">
+              <tr>
+                <td colspan="8" style="text-align: center">
+                  Loading transactions...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- REPORT INFORMATION -->
+      <!-- ================================================= -->
+
+      <section class="admin-panel report-notice">
+        <h3>Administrative Reporting</h3>
+
+        <p>
+          Exported reports contain the selected transaction filters, generation
+          date and administrator responsible for producing the report.
+        </p>
+
+        <p>
+          Report generation activities are recorded in the AgriConnect
+          administrative audit trail.
+        </p>
+      </section>
+    </main>
+
+    <script src="../js/adminRevenue.js"></script>
+  </body>
+</html>

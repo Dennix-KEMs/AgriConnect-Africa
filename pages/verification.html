@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Verification | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/verification.css" />
+  </head>
+
+  <body class="verification-page">
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="verification-header">
+      <div>
+        <h1>AgriConnect Africa</h1>
+
+        <p>Account Verification</p>
+      </div>
+
+      <div class="verification-header-actions">
+        <button id="backToAccountBtn" class="btn" type="button">
+          ← Back to Account
+        </button>
+      </div>
+    </header>
+    <div id="rejectionNotice" class="verification-rejection" hidden></div>
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="verification-container">
+      <!-- ================================================= -->
+      <!-- LOADING -->
+      <!-- ================================================= -->
+
+      <div id="verificationLoading" class="verification-loading">
+        Loading verification information...
+      </div>
+
+      <!-- ================================================= -->
+      <!-- ERROR -->
+      <!-- ================================================= -->
+
+      <div id="verificationError" class="verification-error" hidden></div>
+
+      <!-- ================================================= -->
+      <!-- VERIFICATION CONTENT -->
+      <!-- ================================================= -->
+
+      <section id="verificationContent" hidden>
+        <!-- =============================================== -->
+        <!-- TITLE -->
+        <!-- =============================================== -->
+
+        <section class="dashboard-card verification-hero">
+          <div>
+            <span id="verificationRoleBadge" class="verification-role-badge">
+            </span>
+
+            <h2 id="verificationTitle">Account Verification</h2>
+
+            <p id="verificationDescription">
+              Complete the required verification steps for this account.
+            </p>
+          </div>
+
+          <div class="verification-status-area">
+            <div
+              id="verificationStatusBadge"
+              class="verification-status-badge"
+            ></div>
+
+            <p
+              id="verificationStatusMessage"
+              class="verification-status-message"
+            ></p>
+          </div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- REQUIREMENTS -->
+        <!-- =============================================== -->
+
+        <section class="verification-section">
+          <div class="section-heading">
+            <div>
+              <h2>Required Documents</h2>
+
+              <p>
+                These documents are required before your verification can be
+                submitted.
+              </p>
+            </div>
+          </div>
+
+          <div id="requiredDocuments" class="document-requirements-grid"></div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- OPTIONAL DOCUMENTS -->
+        <!-- =============================================== -->
+
+        <section class="verification-section">
+          <div class="section-heading">
+            <div>
+              <h2>Optional Documents</h2>
+
+              <p>
+                These documents can provide additional information during
+                verification.
+              </p>
+            </div>
+          </div>
+
+          <div id="optionalDocuments" class="document-requirements-grid"></div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- UPLOADED DOCUMENTS -->
+        <!-- =============================================== -->
+
+        <section class="verification-section">
+          <div class="section-heading">
+            <div>
+              <h2>Your Documents</h2>
+
+              <p>Documents uploaded for this verification application.</p>
+            </div>
+          </div>
+
+          <div id="uploadedDocuments" class="uploaded-documents"></div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- UPLOAD -->
+        <!-- =============================================== -->
+
+        <section class="verification-section">
+          <div class="dashboard-card upload-card">
+            <h2>Upload a Document</h2>
+
+            <p>Upload a document required for your account verification.</p>
+
+            <form id="documentUploadForm" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="documentType"> Document Type </label>
+
+                <select id="documentType" required>
+                  <option value="">Select document type</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="documentNumber">
+                  Document Number
+                  <span> (if applicable) </span>
+                </label>
+
+                <input
+                  type="text"
+                  id="documentNumber"
+                  placeholder="Enter document number"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="documentFile"> Document File </label>
+
+                <input
+                  type="file"
+                  id="documentFile"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  required
+                />
+
+                <small> Upload a clear PDF, JPG or PNG document. </small>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-green"
+                id="uploadDocumentBtn"
+              >
+                Upload Document
+              </button>
+            </form>
+
+            <div id="uploadMessage" class="form-message"></div>
+          </div>
+        </section>
+
+        <!-- =============================================== -->
+        <!-- SUBMISSION -->
+        <!-- =============================================== -->
+
+        <section class="verification-section">
+          <div class="dashboard-card submission-card">
+            <h2>Submit for Review</h2>
+
+            <p id="submissionMessage">
+              Upload all required documents before submitting your verification.
+            </p>
+
+            <button
+              id="submitVerificationBtn"
+              class="btn btn-green"
+              type="button"
+            >
+              Submit Verification
+            </button>
+
+            <div id="submissionResult" class="form-message"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/roleManager.js"></script>
+
+    <script src="../js/verification.js"></script>
+  </body>
+</html>

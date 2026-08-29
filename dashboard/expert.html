@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expert Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="dashboard-header-main">
+        <div>
+          <h1>AgriConnect Africa</h1>
+
+          <h2 id="welcome">Welcome</h2>
+
+          <p id="roleDisplay">👨‍🔬 Expert Workspace</p>
+        </div>
+
+        <div class="dashboard-header-actions">
+          <div class="role-switcher">
+            <label for="roleSelector"> Switch Workspace: </label>
+
+            <select id="roleSelector"></select>
+          </div>
+
+          <button id="logoutBtn" class="btn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+      <nav class="dashboard-nav">
+        <a href="../pages/notifications.html"> Notifications </a>
+
+        <a href="../pages/nearby-users.html"> Nearby Farmers & Buyers </a>
+
+        <a href="../pages/profile.html"> Profile </a>
+
+        <a href="../pages/messages.html">
+          Messages
+
+          <span id="unreadBadge"></span>
+        </a>
+
+        <a href="../pages/account.html"> 👤 My Account </a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div id="locationInfo"></div>
+
+        <div class="dashboard-cards">
+          <div class="card">
+            <h3 id="pendingBookings">0</h3>
+            <p>Pending</p>
+          </div>
+
+          <div class="card">
+            <h3 id="todayBookings">0</h3>
+            <p>Today</p>
+          </div>
+
+          <div class="card">
+            <h3 id="upcomingBookings">0</h3>
+            <p>Upcoming</p>
+          </div>
+
+          <div class="card">
+            <h3 id="completedBookings">0</h3>
+            <p>Completed</p>
+          </div>
+
+          <div class="card">
+            <h3 id="totalFarmers">0</h3>
+            <p>Farmers Helped</p>
+          </div>
+
+          <div class="card">
+            <h3 id="averageRating">N/A</h3>
+            <p>Rating</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Recent Consultation Requests</h3>
+
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Farmer</th>
+                <th>Topic</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="recentBookingsBody"></tbody>
+          </table>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Profile</h3>
+
+          <p>Manage your account.</p>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Quick Actions</h3>
+
+          <button onclick="window.location.href = 'bookings.html'">
+            View All Bookings
+          </button>
+
+          <button onclick="window.location.href = 'profile.html'">
+            Edit Profile
+          </button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Messages</h3>
+
+          <p>Communicate with farmers.</p>
+
+          <button onclick="window.location.href = '../pages/messages.html'">
+            Open Messages
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="../js/config.js"></script>
+    <script src="../js/authGuard.js"></script>
+    <script src="../js/roleManager.js"></script>
+    <script src="../js/expertDashboard.js"></script>
+
+    <div id="notesModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeNotesModal()"> &times; </span>
+
+        <h2>Consultation Notes</h2>
+        <h3 id="bookingTopic"></h3>
+
+        <input type="hidden" id="bookingId" />
+
+        <textarea
+          id="consultationNotes"
+          rows="10"
+          placeholder="Write your consultation notes here..."
+        ></textarea>
+
+        <br /><br />
+
+        <button onclick="saveNotes()">Save Notes</button>
+      </div>
+    </div>
+  </body>
+</html>

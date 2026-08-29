@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div id="productDetails"></div>
+
+<div id="reviewSummary"></div>
+
+<div id="reviews"></div>
+
+<div id="reviewMessage"></div>
+
+   <div class="order-section">
+
+    <input
+        type="number"
+        id="orderQuantity"
+        min="1"
+        value="1">
+
+    <button id="cartBtn">
+        Add to Cart
+    </button>
+
+    <button id="orderBtn">
+        Buy Now
+    </button>
+
+</div>
+
+<div id="orderMessage"></div>
+    </div>
+
+    <hr />
+
+    <section id="ratingSummary">Loading rating...</section>
+
+    <hr />
+
+    <section>
+      <h2>Customer Reviews</h2>
+
+      <div id="reviewsContainer">Loading reviews...</div>
+    </section>
+
+    <hr />
+
+    <section id="reviewFormSection">
+      <h2>Write a Review</h2>
+
+      <select id="rating">
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+
+      <br /><br />
+
+      <textarea
+        id="comment"
+        placeholder="Write your review..."
+        rows="5"
+      ></textarea>
+
+      <br /><br />
+
+      <button id="submitReview">Submit Review</button>
+
+      
+    </section>
+
+    <script src="../js/productDetails.js"></script>
+  </body>
+</html>

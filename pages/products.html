@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Product - AgriConnect Africa</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="simple-page">
+    <main class="product-form">
+      <h1>Add Product</h1>
+      <p class="section-header">
+        List produce, supplies, or services for buyers.
+      </p>
+
+      <form class="form-stack" id="product-form">
+        <input name="name" type="text" placeholder="Product Name" required />
+        <input
+          name="price"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="Price in KSh"
+          required
+        />
+        <select name="category" required>
+          <option value="">Select Category</option>
+          <option value="Fresh Produce">Fresh Produce</option>
+          <option value="Animal Feeds">Animal Feeds</option>
+          <option value="Livestock">Livestock</option>
+          <option value="Farm Services">Farm Services</option>
+        </select>
+        <input name="imageUrl" type="url" placeholder="Image URL optional" />
+        <textarea
+          name="description"
+          placeholder="Description"
+          required
+        ></textarea>
+        <p class="form-message" id="product-message" role="status"></p>
+        <button class="btn btn-green" type="submit">Upload Product</button>
+      </form>
+
+      <section class="listed-products" aria-label="Listed products">
+        <h2>Current Listings</h2>
+        <div class="product-list" id="product-list"></div>
+      </section>
+
+      <div class="auth-links">
+        <a href="../dashboard.html">Back to Dashboard</a>
+      </div>
+    </main>
+    <script src="../index.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/authGuard.js"></script>
+  </body>
+</html>

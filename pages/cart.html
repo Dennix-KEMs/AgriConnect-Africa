@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="page-header">
+      <h1>🛒 Shopping Cart</h1>
+      <p>Review your selected products before checkout.</p>
+    </header>
+
+    <main class="cart-container">
+      <section id="cartItems">Loading your cart...</section>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">KES 0</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+          <span id="deliveryFee">KES 0</span>
+        </div>
+
+        <hr />
+
+        <div class="summary-row total">
+          <strong>Total</strong>
+          <strong id="cartTotal">KES 0</strong>
+        </div>
+
+        <button id="checkoutBtn" class="primary-btn">
+          Proceed to Checkout
+        </button>
+
+        <button id="clearCartBtn" class="secondary-btn">Clear Cart</button>
+      </aside>
+    </main>
+
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

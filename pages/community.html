@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Community Hub</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <h1>🌱 AgriConnect Community Hub</h1>
+
+      <a href="index.html" class="btn btn-green"> Home </a>
+    </header>
+
+    <main class="community-page">
+      <section class="community-filters">
+        <input id="searchInput" placeholder="Search farming posts..." />
+
+        <select id="categoryFilter">
+          <option value="">All Categories</option>
+        </select>
+
+        <select id="countyFilter">
+          <option value="">All Counties</option>
+        </select>
+
+        <select id="sortFilter">
+          <option value="newest">Newest</option>
+
+          <option value="popular">Most Viewed</option>
+
+          <option value="discussed">Most Discussed</option>
+
+          <option value="helpful">Most Helpful</option>
+
+          <option value="oldest">Oldest</option>
+        </select>
+      </section>
+
+      <section class="trending-topics">
+        <h2>🔥 Trending Topics</h2>
+
+        <div id="trendingTopics">Loading...</div>
+      </section>
+
+      <section class="top-farmers-section">
+        <h2>🏆 Top Learning Farmers</h2>
+
+        <p>
+          Farmers making the biggest impact by sharing knowledge, answering
+          questions and helping others.
+        </p>
+
+        <div id="topFarmers">Loading top farmers...</div>
+      </section>
+
+      <section>
+        <h2>⭐ Featured Posts</h2>
+
+        <div id="featuredPosts">Loading featured posts...</div>
+      </section>
+
+      <section>
+        <h2>Community Feed</h2>
+        <p id="pageInfo"></p>
+
+        <div id="communityFeed">Loading community posts...</div>
+
+        <br />
+
+        <div style="text-align: center">
+          <button id="loadMoreBtn">Load More</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/community.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>My Community Posts</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>🌱 My Community Posts</h1>
+
+      <button onclick="history.back()">← Back to Dashboard</button>
+    </header>
+
+    <main>
+      <section class="dashboard-card">
+        <h2>Search</h2>
+
+        <input id="searchPost" placeholder="Search your posts..." />
+      </section>
+
+      <section class="dashboard-card">
+        <select id="sortPosts">
+          <option value="newest">Newest</option>
+
+          <option value="oldest">Oldest</option>
+
+          <option value="views">Most Viewed</option>
+
+          <option value="comments">Most Discussed</option>
+        </select>
+      </section>
+
+      <section id="myPostsContainer">Loading...</section>
+    </main>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/communityMyPosts.js"></script>
+  </body>
+</html>

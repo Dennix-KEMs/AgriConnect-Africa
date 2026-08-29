@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-card">
+      <h1>Payment Summary</h1>
+
+      <div id="paymentStatus" class="payment-status pending">
+        Pending Payment
+      </div>
+
+      <p>Checkout Reference</p>
+
+      <h3 id="checkoutReference"></h3>
+
+      <hr />
+
+      <div id="paymentItems">Loading items...</div>
+
+      <hr />
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+
+        <strong id="subtotal"></strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+
+        <strong id="deliveryFee"></strong>
+      </div>
+
+      <div class="summary-row total">
+        <span>Total</span>
+
+        <strong id="paymentAmount"></strong>
+      </div>
+
+      <div class="payment-phone">
+        <label for="mpesaPhone"> M-Pesa Phone Number </label>
+
+        <input type="tel" id="mpesaPhone" placeholder="254712345678" />
+
+        <small> Use the phone number registered with M-Pesa. </small>
+      </div>
+
+      <button id="payNowBtn" class="primary-btn">Pay with M-Pesa</button>
+    </div>
+
+    <script src="../js/payment.js"></script>
+  </body>
+</html>

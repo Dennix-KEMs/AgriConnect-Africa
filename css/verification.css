@@ -1,0 +1,123 @@
+/* ============================================================
+   VERIFICATION STATUS
+   ============================================================ */
+
+.verification-status-area {
+  text-align: right;
+}
+
+
+.verification-status-message {
+  margin-top: 10px;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   REJECTION NOTICE
+   ============================================================ */
+
+.verification-rejection {
+  display: flex;
+  gap: 16px;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e0a0a0;
+  background: #fff5f5;
+}
+
+
+.rejection-icon {
+  font-size: 28px;
+}
+
+
+.rejection-content {
+  flex: 1;
+}
+
+
+.rejection-content h3 {
+  margin-top: 0;
+}
+
+
+.rejection-detail {
+  margin-top: 12px;
+}
+
+
+.rejection-detail strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+
+.rejection-detail p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+.rejection-action {
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+
+.verification-status-badge.pending {
+  background: #fff4d6;
+  color: #856404;
+}
+
+
+.verification-status-badge.verified {
+  background: #dff5e5;
+  color: #176b35;
+}
+
+
+.verification-status-badge.rejected {
+  background: #ffe0e0;
+  color: #a32121;
+}
+
+
+/* ============================================================
+   LOCKED VERIFICATION
+   ============================================================ */
+
+.verification-locked {
+  opacity: 0.75;
+}
+
+
+.verification-locked input,
+.verification-locked select {
+  cursor: not-allowed;
+}
+
+
+.verification-locked button {
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   DOCUMENT COMPLETION
+   ============================================================ */
+
+.document-requirement-card.completed {
+  border-color: #74b88a;
+}
+
+
+.document-uploaded-badge {
+  font-weight: 600;
+}

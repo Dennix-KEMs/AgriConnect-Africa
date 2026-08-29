@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Supplier Dashboard | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="dashboard-header-main">
+        <div>
+          <h1>AgriConnect Africa</h1>
+
+          <h2 id="welcome">Welcome</h2>
+
+          <p id="roleDisplay">📦 Supplier Workspace</p>
+        </div>
+
+        <div class="dashboard-header-actions">
+          <div class="role-switcher">
+            <label for="roleSelector"> Switch Workspace: </label>
+
+            <select id="roleSelector"></select>
+          </div>
+
+          <button id="logoutBtn" class="btn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+      <nav class="dashboard-nav">
+        <a href="../pages/notifications.html"> Notifications </a>
+
+        <a href="../pages/nearby-users.html"> Nearby Farmers & Buyers </a>
+
+        <a href="../pages/profile.html"> Profile </a>
+
+        <a href="../pages/messages.html">
+          Messages
+
+          <span id="unreadBadge"></span>
+        </a>
+
+        <a href="../pages/account.html"> 👤 My Account </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ========================= -->
+      <!-- SUPPLIER OVERVIEW -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>📦 Supplier Dashboard</h2>
+
+        <div id="locationInfo"></div>
+
+        <div class="dashboard-cards">
+          <div class="card">
+            <h3 id="totalProducts">0</h3>
+
+            <p>Total Supplies</p>
+          </div>
+
+          <div class="card">
+            <h3 id="totalOrders">0</h3>
+
+            <p>Total Orders</p>
+          </div>
+
+          <div class="card">
+            <h3>📦 My Supplies</h3>
+
+            <p>Manage the products you supply.</p>
+
+            <button onclick="scrollToSupplies()">View Supplies</button>
+          </div>
+
+          <div class="card">
+            <h3>🛒 Incoming Orders</h3>
+
+            <p>Manage orders from buyers.</p>
+
+            <button onclick="scrollToOrders()">View Orders</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- UPLOAD SUPPLY -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="uploadSection">
+        <h2>➕ Add New Supply</h2>
+
+        <div class="dashboard-card">
+          <p>
+            List agricultural inputs, equipment, or other supplies for farmers
+            and buyers.
+          </p>
+
+          <form id="supplyForm">
+            <input
+              type="text"
+              id="product_name"
+              placeholder="Supply Name"
+              required
+            />
+
+            <input type="text" id="category" placeholder="Category" required />
+
+            <textarea
+              id="description"
+              placeholder="Description"
+              required
+            ></textarea>
+
+            <input
+              type="number"
+              id="price"
+              placeholder="Price (KES)"
+              min="0"
+              required
+            />
+
+            <input
+              type="number"
+              id="quantity"
+              placeholder="Available Quantity"
+              min="0"
+              required
+            />
+
+            <input type="file" id="image" accept="image/*" />
+
+            <button type="submit" class="btn btn-green">Upload Supply</button>
+          </form>
+
+          <div id="uploadMessage"></div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- MY SUPPLIES -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="suppliesSection">
+        <h2>📦 My Supplies</h2>
+
+        <p>Manage the supplies you currently have listed.</p>
+
+        <button onclick="loadSupplierProducts()">Refresh Supplies</button>
+
+        <div id="supplierProducts">Loading supplies...</div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- INCOMING ORDERS -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="ordersSection">
+        <h2>🛒 Incoming Orders</h2>
+
+        <p>Orders placed by buyers for your supplies.</p>
+
+        <button onclick="loadSupplierOrders()">Refresh Orders</button>
+
+        <div id="supplierOrders">Loading orders...</div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- WEATHER -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section" id="weatherSection">
+        <h2>🌤 Local Weather</h2>
+
+        <div class="dashboard-card">
+          <p>Weather information for your registered location.</p>
+
+          <div id="supplierWeather">Weather information coming soon...</div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- NEARBY USERS -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>📍 Nearby AgriConnect Users</h2>
+
+        <div class="dashboard-card">
+          <p>Discover farmers, buyers, suppliers and experts near you.</p>
+
+          <button onclick="window.location.href = '../pages/nearby-users.html'">
+            Explore Nearby Users
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- MESSAGES -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>💬 Messages</h2>
+
+        <div class="dashboard-card">
+          <p>Communicate with buyers and farmers.</p>
+
+          <button onclick="window.location.href = '../pages/messages.html'">
+            Open Messages
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- PROFILE -->
+      <!-- ========================= -->
+
+      <section class="dashboard-section">
+        <h2>👤 My Supplier Account</h2>
+
+        <div class="dashboard-card">
+          <p>
+            Manage your personal information, location and account settings.
+          </p>
+
+          <button onclick="window.location.href = '../pages/profile.html'">
+            Manage Profile
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/supplierDashboard.js"></script>
+  </body>
+</html>

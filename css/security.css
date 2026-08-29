@@ -1,0 +1,371 @@
+/* ============================================================
+   AGRICONNECT ACCOUNT SECURITY
+   ============================================================ */
+
+.security-container {
+
+  width: min(
+    1100px,
+    calc(100% - 40px)
+  );
+
+  margin: 40px auto 80px;
+
+}
+
+
+/* ============================================================
+   INTRO
+   ============================================================ */
+
+.security-intro {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 28px;
+
+  margin-bottom: 35px;
+
+}
+
+
+.security-intro-icon {
+
+  width: 60px;
+
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 16px;
+
+  font-size: 30px;
+
+  background: #eef8ef;
+
+}
+
+
+.security-intro h2 {
+
+  margin: 0 0 6px;
+
+}
+
+
+.security-intro p {
+
+  margin: 0;
+
+  color: #666;
+
+  line-height: 1.6;
+
+}
+
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.security-section {
+
+  margin-bottom: 35px;
+
+}
+
+
+.security-section-header {
+
+  margin-bottom: 14px;
+
+}
+
+
+.security-section-header h2 {
+
+  margin: 0 0 5px;
+
+}
+
+
+.security-section-header p {
+
+  margin: 0;
+
+  color: #777;
+
+}
+
+
+
+/* ============================================================
+   SECURITY CARD
+   ============================================================ */
+
+.security-card {
+
+  padding: 28px;
+
+}
+
+
+.security-card form {
+
+  max-width: 650px;
+
+}
+
+
+
+/* ============================================================
+   FORM
+   ============================================================ */
+
+.security-card .form-group {
+
+  margin-bottom: 20px;
+
+}
+
+
+.security-card label {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-weight: 600;
+
+}
+
+
+.security-card input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color .2s,
+    box-shadow .2s;
+
+}
+
+
+.security-card input:focus {
+
+  border-color: #4caf50;
+
+  box-shadow:
+    0 0 0 3px rgba(76,175,80,.12);
+
+}
+
+
+.security-card small {
+
+  display: block;
+
+  margin-top: 7px;
+
+  color: #777;
+
+  line-height: 1.4;
+
+}
+
+
+
+/* ============================================================
+   CURRENT VALUE
+   ============================================================ */
+
+.security-current-value {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 20px;
+
+}
+
+
+.security-current-value > span:first-child {
+
+  color: #777;
+
+  width: 100%;
+
+  font-size: 14px;
+
+}
+
+
+.security-current-value strong {
+
+  font-size: 17px;
+
+}
+
+
+
+/* ============================================================
+   CHANGE PANEL
+   ============================================================ */
+
+.security-change-panel {
+
+  margin-top: 25px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #e5e5e5;
+
+}
+
+
+.verification-code-form {
+
+  margin-top: 25px;
+
+}
+
+
+
+/* ============================================================
+   MESSAGES
+   ============================================================ */
+
+.security-message {
+
+  display: none;
+
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+}
+
+
+.security-message.show {
+
+  display: block;
+
+}
+
+
+.security-message.success {
+
+  background: #edf8ef;
+
+  color: #237a35;
+
+}
+
+
+.security-message.error {
+
+  background: #fff1f1;
+
+  color: #b42318;
+
+}
+
+
+.security-message.info {
+
+  background: #eef5ff;
+
+  color: #2457a6;
+
+}
+
+
+
+/* ============================================================
+   BUTTON STATE
+   ============================================================ */
+
+.security-card button:disabled {
+
+  opacity: .6;
+
+  cursor: not-allowed;
+
+}
+
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .security-container {
+
+    width:
+      calc(100% - 24px);
+
+    margin-top: 25px;
+
+  }
+
+
+  .security-intro {
+
+    align-items: flex-start;
+
+    padding: 20px;
+
+  }
+
+
+  .security-card {
+
+    padding: 20px;
+
+  }
+
+
+  .security-current-value {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+  }
+
+}
+

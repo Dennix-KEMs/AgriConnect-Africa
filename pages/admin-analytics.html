@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Platform Statistics | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      /* =====================================================
+       PAGE
+    ===================================================== */
+
+      .analytics-page {
+        max-width: 1400px;
+
+        margin: 0 auto;
+
+        padding: 30px 25px 60px;
+      }
+
+      /* =====================================================
+       HEADER
+    ===================================================== */
+
+      .analytics-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin-bottom: 30px;
+
+        flex-wrap: wrap;
+      }
+
+      .analytics-header h1 {
+        margin: 0;
+
+        font-size: 30px;
+      }
+
+      .analytics-header p {
+        margin: 6px 0 0;
+
+        opacity: 0.7;
+      }
+
+      .header-actions {
+        display: flex;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+      }
+
+      /* =====================================================
+       SECTION
+    ===================================================== */
+
+      .analytics-section {
+        margin-top: 35px;
+      }
+
+      .analytics-section h2 {
+        margin-bottom: 18px;
+      }
+
+      /* =====================================================
+       STAT CARDS
+    ===================================================== */
+
+      .stats-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+
+        gap: 18px;
+      }
+
+      .stat-card {
+        background: #ffffff;
+
+        border-radius: 14px;
+
+        padding: 22px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+        border-left: 5px solid #2e7d32;
+
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-3px);
+
+        box-shadow: 0 7px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .stat-label {
+        font-size: 14px;
+
+        opacity: 0.7;
+
+        margin-bottom: 8px;
+      }
+
+      .stat-value {
+        font-size: 28px;
+
+        font-weight: 700;
+      }
+
+      .stat-description {
+        margin-top: 6px;
+
+        font-size: 12px;
+
+        opacity: 0.6;
+      }
+
+      /* =====================================================
+       CHART GRID
+    ===================================================== */
+
+      .charts-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+        gap: 22px;
+      }
+
+      .chart-card {
+        background: #ffffff;
+
+        border-radius: 14px;
+
+        padding: 20px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .chart-card h3 {
+        margin-top: 0;
+
+        margin-bottom: 18px;
+      }
+
+      .chart-container {
+        position: relative;
+
+        height: 320px;
+      }
+
+      /* =====================================================
+       TABLE
+    ===================================================== */
+
+      .table-card {
+        background: #ffffff;
+
+        border-radius: 14px;
+
+        padding: 20px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+        overflow-x: auto;
+      }
+
+      .table-actions {
+        display: flex;
+
+        justify-content: flex-end;
+
+        gap: 10px;
+
+        margin-bottom: 15px;
+
+        flex-wrap: wrap;
+      }
+
+      .table-actions button {
+        padding: 9px 15px;
+
+        border: none;
+
+        border-radius: 7px;
+
+        cursor: pointer;
+
+        font-weight: 600;
+      }
+
+      #exportCSVBtn {
+        background: #2e7d32;
+
+        color: white;
+      }
+
+      #exportPDFBtn {
+        background: #444;
+
+        color: white;
+      }
+
+      .analytics-table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        min-width: 750px;
+      }
+
+      .analytics-table th,
+      .analytics-table td {
+        padding: 12px;
+
+        text-align: left;
+
+        border-bottom: 1px solid #eeeeee;
+
+        font-size: 14px;
+      }
+
+      .analytics-table th {
+        background: #f5f7f5;
+
+        font-weight: 700;
+      }
+
+      .status-badge {
+        display: inline-block;
+
+        padding: 4px 9px;
+
+        border-radius: 20px;
+
+        font-size: 12px;
+
+        font-weight: 600;
+      }
+
+      /* =====================================================
+       VERIFICATION
+    ===================================================== */
+
+      .verification-grid {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+        gap: 18px;
+      }
+
+      .verification-card {
+        padding: 20px;
+
+        background: #ffffff;
+
+        border-radius: 14px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .verification-card strong {
+        display: block;
+
+        font-size: 28px;
+
+        margin-top: 8px;
+      }
+
+      /* =====================================================
+       QUICK ACTIONS
+    ===================================================== */
+
+      .quick-actions {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+        gap: 15px;
+      }
+
+      .quick-action {
+        padding: 18px;
+
+        border-radius: 12px;
+
+        background: #ffffff;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+
+        cursor: pointer;
+
+        text-decoration: none;
+
+        color: inherit;
+
+        transition: transform 0.2s ease;
+      }
+
+      .quick-action:hover {
+        transform: translateY(-2px);
+      }
+
+      .quick-action h3 {
+        margin: 0 0 6px;
+      }
+
+      .quick-action p {
+        margin: 0;
+
+        opacity: 0.65;
+
+        font-size: 13px;
+      }
+
+      /* =====================================================
+       LOADING
+    ===================================================== */
+
+      .loading {
+        text-align: center;
+
+        padding: 30px;
+
+        opacity: 0.6;
+      }
+
+      /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+      @media (max-width: 600px) {
+        .analytics-page {
+          padding: 20px 15px 40px;
+        }
+
+        .analytics-header h1 {
+          font-size: 24px;
+        }
+
+        .chart-container {
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="analytics-page">
+      <!-- ===================================================
+         HEADER
+    =================================================== -->
+
+      <header class="analytics-header">
+        <div>
+          <h1>Platform Statistics</h1>
+
+          <p>AgriConnect Africa administrative intelligence dashboard</p>
+        </div>
+
+        <div class="header-actions">
+          <button onclick="window.location.href = '../dashboard/admin.html'">
+            ← Back to Dashboard
+          </button>
+
+          <button onclick="loadAnalytics()">↻ Refresh</button>
+        </div>
+      </header>
+
+      <!-- ===================================================
+         PLATFORM OVERVIEW
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Platform Overview</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Users</div>
+
+            <div class="stat-value" id="totalUsers">—</div>
+
+            <div class="stat-description">Registered platform accounts</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Active Users</div>
+
+            <div class="stat-value" id="activeUsers">—</div>
+
+            <div class="stat-description">Currently active accounts</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Suspended Users</div>
+
+            <div class="stat-value" id="suspendedUsers">—</div>
+
+            <div class="stat-description">Accounts currently suspended</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Products</div>
+
+            <div class="stat-value" id="totalProducts">—</div>
+
+            <div class="stat-description">Marketplace listings</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Orders</div>
+
+            <div class="stat-value" id="totalOrders">—</div>
+
+            <div class="stat-description">Marketplace orders</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Bookings</div>
+
+            <div class="stat-value" id="totalBookings">—</div>
+
+            <div class="stat-description">Expert/service bookings</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Total Revenue</div>
+
+            <div class="stat-value" id="totalRevenue">—</div>
+
+            <div class="stat-description">Revenue from delivered orders</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         ACTIVE ROLES
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Active Platform Roles</h2>
+
+        <p style="opacity: 0.65">A user may have more than one active role.</p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Farmers</div>
+
+            <div class="stat-value" id="totalFarmers">—</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Buyers</div>
+
+            <div class="stat-value" id="totalBuyers">—</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Suppliers</div>
+
+            <div class="stat-value" id="totalSuppliers">—</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Experts</div>
+
+            <div class="stat-value" id="totalExperts">—</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         VERIFICATION
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Verification Overview</h2>
+
+        <div class="verification-grid">
+          <div class="verification-card">
+            <div>Pending Verifications</div>
+
+            <strong id="pendingVerifications"> — </strong>
+          </div>
+
+          <div class="verification-card">
+            <div>Pending Experts</div>
+
+            <strong id="pendingExperts"> — </strong>
+          </div>
+
+          <div class="verification-card">
+            <div>Pending Suppliers</div>
+
+            <strong id="pendingSuppliers"> — </strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         CHARTS
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Marketplace Analytics</h2>
+
+        <div class="charts-grid">
+          <!-- MONTHLY REVENUE -->
+
+          <div class="chart-card">
+            <h3>Monthly Revenue</h3>
+
+            <div class="chart-container">
+              <canvas id="monthlyRevenueChart"></canvas>
+            </div>
+          </div>
+
+          <!-- ORDER STATUS -->
+
+          <div class="chart-card">
+            <h3>Order Status Distribution</h3>
+
+            <div class="chart-container">
+              <canvas id="orderStatusChart"></canvas>
+            </div>
+          </div>
+
+          <!-- TOP PRODUCTS -->
+
+          <div class="chart-card" style="grid-column: 1 / -1">
+            <h3>Top 10 Best Selling Products</h3>
+
+            <div class="chart-container" style="height: 380px">
+              <canvas id="topProductsChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         RECENT TRANSACTIONS
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Recent Transactions</h2>
+
+        <div class="table-card">
+          <div class="table-actions">
+            <button id="exportCSVBtn">Export CSV</button>
+
+            <button id="exportPDFBtn">Export PDF</button>
+          </div>
+
+          <div id="transactionsLoading" class="loading">
+            Loading transactions...
+          </div>
+
+          <div style="overflow-x: auto">
+            <table class="analytics-table" id="transactionsTable">
+              <thead>
+                <tr>
+                  <th>Order #</th>
+
+                  <th>Buyer</th>
+
+                  <th>Seller</th>
+
+                  <th>Product</th>
+
+                  <th>Qty</th>
+
+                  <th>Amount</th>
+
+                  <th>Status</th>
+
+                  <th>Date</th>
+                </tr>
+              </thead>
+
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+         QUICK ADMIN ACTIONS
+    =================================================== -->
+
+      <section class="analytics-section">
+        <h2>Administrative Management</h2>
+
+        <div class="quick-actions">
+          <a class="quick-action" href="admin-users.html">
+            <h3>Manage Users</h3>
+
+            <p>Search, filter, suspend, unsuspend and generate reports.</p>
+          </a>
+
+          <a class="quick-action" href="admin-products.html">
+            <h3>Manage Products</h3>
+
+            <p>Review and manage marketplace product listings.</p>
+          </a>
+
+          <a class="quick-action" href="admin-orders.html">
+            <h3>Manage Orders</h3>
+
+            <p>Monitor marketplace orders and their statuses.</p>
+          </a>
+
+          <a class="quick-action" href="adminVerificationReview.html">
+            <h3>Verification Center</h3>
+
+            <p>Review professional verification submissions.</p>
+          </a>
+
+          <a class="quick-action" href="reports.html">
+            <h3>Reports</h3>
+
+            <p>Generate and review administrative reports.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+       LIBRARIES
+  ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- =====================================================
+       AUTH
+  ====================================================== -->
+
+    <script src="../js/authGuard.js"></script>
+
+    <!-- =====================================================
+       CONFIG
+  ====================================================== -->
+
+    <script src="../js/config.js"></script>
+
+    <!-- =====================================================
+       ANALYTICS
+  ====================================================== -->
+
+    <script src="../js/adminAnalytics.js"></script>
+  </body>
+</html>

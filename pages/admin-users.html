@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Manage Users</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <h1>Manage Users</h1>
+
+    <button onclick="window.location.href = '../dashboard/admin.html'">
+      Back Dashboard
+    </button>
+
+    <div class="user-toolbar">
+      <div>
+        <h2>User Management</h2>
+
+        <p>Search, filter and manage platform users.</p>
+      </div>
+
+      <button id="generateUserReport" class="report-btn">
+        📄 Generate PDF Report
+      </button>
+    </div>
+
+    <div class="user-filters-panel">
+      <div class="user-filters-title">SEARCH & FILTER USERS</div>
+
+      <div class="user-filters">
+        <input
+          type="text"
+          id="searchUser"
+          placeholder="Search name, email, phone or county..."
+        />
+
+        <select id="statusFilter">
+          <option value="all">All Statuses</option>
+
+          <option value="active">Active</option>
+
+          <option value="suspended">Suspended</option>
+        </select>
+
+        <select id="accountTypeFilter">
+          <option value="all">All Account Types</option>
+
+          <option value="farmer">Farmers</option>
+
+          <option value="buyer">Buyers</option>
+
+          <option value="supplier">Suppliers</option>
+
+          <option value="expert">Experts</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="userCount" class="user-count"></div>
+
+    <div id="usersContainer"></div>
+
+    <div class="user-filters">
+      <input
+        type="text"
+        id="searchUser"
+        placeholder="Search name, email, phone or county..."
+      />
+
+      <select id="statusFilter">
+        <option value="all">All Statuses</option>
+
+        <option value="active">Active</option>
+
+        <option value="suspended">Suspended</option>
+      </select>
+
+      <select id="accountTypeFilter">
+        <option value="all">All Account Types</option>
+
+        <option value="farmer">Farmers</option>
+
+        <option value="buyer">Buyers</option>
+
+        <option value="supplier">Suppliers</option>
+
+        <option value="expert">Experts</option>
+      </select>
+    </div>
+
+    <div id="usersContainer"></div>
+
+    <script src="../js/adminUsers.js"></script>
+  </body>
+</html>

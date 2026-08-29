@@ -1,4 +1,7 @@
 const { pool } = require("../database/db");
+const {
+    createNotification
+} = require("../utils/notificationHelper");
 
 exports.createBooking = async (req, res) => {
   try {
@@ -25,17 +28,10 @@ exports.createBooking = async (req, res) => {
       bookingId: result.insertId
     });
 
-    await pool.query(
-  `
-  INSERT INTO notifications
-  (user_id, title, message)
-  VALUES (?, ?, ?)
-  `,
-  [
+    await createNotification(
     expert_id,
-    "New Booking",
-    "A farmer has booked a consultation."
-  ]
+    "New Consultation Request",
+    `A farmer has requested a consultation about "${topic}".`
 );
 
   } catch (error) {
@@ -47,14 +43,47 @@ exports.createBooking = async (req, res) => {
   }
 };
 
+
 exports.getFarmerBookings = async (req, res) => {
   try {
 
     const [bookings] = await pool.query(
       `
-      SELECT * FROM bookings
-      WHERE farmer_id = ?
-      ORDER BY created_at DESC
+      SELECT
+
+          b.id,
+
+          b.expert_id,
+
+          b.topic,
+
+          b.description,
+
+          b.status,
+
+          b.booking_date,
+
+          b.consultation_notes,
+
+          u.fullName AS expertName,
+
+          u.specialization,
+
+          er.id AS reviewId
+
+      FROM bookings b
+
+      JOIN users u
+
+          ON b.expert_id = u.id
+
+      LEFT JOIN expert_reviews er
+
+          ON er.booking_id = b.id
+
+      WHERE b.farmer_id = ?
+
+      ORDER BY b.created_at DESC
       `,
       [req.user.id]
     );
@@ -65,9 +94,11 @@ exports.getFarmerBookings = async (req, res) => {
     });
 
   } catch (error) {
+
     res.status(500).json({
       error: error.message
     });
+
   }
 };
 
@@ -113,35 +144,89 @@ exports.getExpertBookings = async (req, res) => {
     });
   }
 };
+
 exports.updateBookingStatus = async (req, res) => {
-  try {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
 
-    const { id } = req.params;
-    const { status } = req.body;
+        const allowed = [
 
-    const allowed = ["pending", "accepted", "rejected", "completed"];
+    "pending",
 
-    if (!allowed.includes(status)) {
-      return res.status(400).json({
-        error: "Invalid status"
-      });
-    }
+    "approved",
 
-    await pool.query(
-      "UPDATE bookings SET status = ? WHERE id = ?",
-      [status, id]
+    "completed",
+
+    "cancelled"
+
+];
+        if (!allowed.includes(status)) {
+            return res.status(400).json({
+                error: "Invalid status"
+            });
+        }
+
+        const [[booking]] = await pool.query(
+            `
+            SELECT farmer_id
+            FROM bookings
+            WHERE id = ?
+            `,
+            [id]
+        );
+
+        if (!booking) {
+            return res.status(404).json({
+                error: "Booking not found"
+            });
+        }
+
+        await pool.query(
+            "UPDATE bookings SET status = ? WHERE id = ?",
+            [status, id]
+        );
+
+        if (status === "approved") {
+            await createNotification(
+                booking.farmer_id,
+                "Consultation Approved",
+                "Your consultation request has been approved by the expert."
+            );
+        }
+
+        if (status === "cancelled") {
+            await createNotification(
+                booking.farmer_id,
+                "Consultation Cancelled",
+                "Unfortunately, your consultation has been cancelled."
+            );
+        }
+
+       if (status === "completed") {
+
+    await createNotification(
+
+        booking.farmer_id,
+
+        "Consultation Completed",
+
+        "Your consultation has been completed. You can now read the expert's notes and leave a review."
+
     );
 
-    res.json({
-      message: "Booking updated",
-      status
-    });
+}
 
-  } catch (error) {
-    res.status(500).json({
-      error: error.message
-    });
-  }
+        res.json({
+            message: "Booking updated",
+            status
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            error: error.message
+        });
+    }
 };
 
 exports.addConsultationNotes = async (req, res) => {
@@ -168,4 +253,59 @@ exports.addConsultationNotes = async (req, res) => {
       error: error.message
     });
   }
+};
+
+exports.getBookingById = async (req, res) => {
+    try {
+
+        const { id } = req.params;
+
+        const [[booking]] = await pool.query(
+            `
+          SELECT
+
+    b.id,
+
+    b.expert_id,
+
+    b.topic,
+
+    b.status,
+
+    b.booking_date,
+
+    b.consultation_notes,
+
+    u.fullName AS expertName,
+
+    u.specialization
+
+FROM bookings b
+
+JOIN users u
+
+ON b.expert_id = u.id
+
+WHERE b.id = ?
+            `,
+            [id]
+        );
+
+        if (!booking) {
+            return res.status(404).json({
+                error: "Booking not found"
+            });
+        }
+
+        res.json(booking);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: error.message
+        });
+
+    }
 };

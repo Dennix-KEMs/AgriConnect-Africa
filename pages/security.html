@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Security | AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/account.css" />
+
+    <link rel="stylesheet" href="../css/security.css" />
+  </head>
+
+  <body class="account-page">
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="account-header">
+      <div>
+        <h1>AgriConnect Africa</h1>
+
+        <p>Account Security</p>
+      </div>
+
+      <div class="account-header-actions">
+        <button id="backToAccountBtn" class="btn" type="button">
+          ← Back to Account
+        </button>
+      </div>
+    </header>
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="security-container">
+      <!-- ================================================= -->
+      <!-- INTRO -->
+      <!-- ================================================= -->
+
+      <section class="security-intro dashboard-card">
+        <div class="security-intro-icon">🔐</div>
+
+        <div>
+          <h2>Account Security</h2>
+
+          <p>
+            Manage your password and the contact information used to secure your
+            AgriConnect account.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- PASSWORD -->
+      <!-- ================================================= -->
+
+      <section class="security-section">
+        <div class="security-section-header">
+          <div>
+            <h2>Password</h2>
+
+            <p>Change the password used to access your AgriConnect account.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-card security-card">
+          <form id="passwordForm">
+            <!-- CURRENT PASSWORD -->
+
+            <div class="form-group password-field">
+              <label for="currentPassword"> Current Password </label>
+
+              <div class="password-input-wrapper">
+                <input
+                  type="password"
+                  id="currentPassword"
+                  name="currentPassword"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="currentPassword"
+                  aria-label="Show password"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <!-- NEW PASSWORD -->
+
+            <div class="form-group password-field">
+              <label for="newPassword"> New Password </label>
+
+              <div class="password-input-wrapper">
+                <input
+                  type="password"
+                  id="newPassword"
+                  name="newPassword"
+                  autocomplete="new-password"
+                  minlength="8"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="newPassword"
+                  aria-label="Show password"
+                >
+                  👁️
+                </button>
+              </div>
+
+              <small>
+                At least 8 characters, including uppercase, lowercase and a
+                number.
+              </small>
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group password-field">
+              <label for="confirmPassword"> Confirm New Password </label>
+
+              <div class="password-input-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  autocomplete="new-password"
+                  minlength="8"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="confirmPassword"
+                  aria-label="Show password"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div id="passwordMessage" class="security-message"></div>
+
+            <button type="submit" id="changePasswordBtn" class="btn btn-green">
+              Change Password
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- EMAIL -->
+      <!-- ================================================= -->
+
+      <section class="security-section">
+        <div class="security-section-header">
+          <div>
+            <h2>Email Address</h2>
+
+            <p>
+              Your email address is used for account communication and
+              verification.
+            </p>
+          </div>
+        </div>
+
+        <div class="dashboard-card security-card">
+          <!-- CURRENT EMAIL -->
+
+          <div class="security-current-value">
+            <span> Current email </span>
+
+            <strong id="currentEmail"> Loading... </strong>
+
+            <span id="emailVerificationBadge" class="verification-badge"></span>
+          </div>
+
+          <button id="startEmailChangeBtn" class="btn" type="button">
+            Change Email
+          </button>
+
+          <!-- ================================================= -->
+          <!-- EMAIL CHANGE -->
+          <!-- ================================================= -->
+
+          <div id="emailChangePanel" class="security-change-panel" hidden>
+            <form id="emailChangeForm">
+              <div class="form-group">
+                <label for="newEmail"> New Email Address </label>
+
+                <input
+                  type="email"
+                  id="newEmail"
+                  name="newEmail"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div id="emailChangeMessage" class="security-message"></div>
+
+              <button type="submit" class="btn btn-green" id="sendEmailCodeBtn">
+                Send Verification Code
+              </button>
+            </form>
+
+            <!-- ================================================= -->
+            <!-- EMAIL VERIFICATION -->
+            <!-- ================================================= -->
+
+            <form
+              id="emailVerificationForm"
+              class="verification-code-form"
+              hidden
+            >
+              <div class="form-group">
+                <label for="emailVerificationCode"> Verification Code </label>
+
+                <input
+                  type="text"
+                  id="emailVerificationCode"
+                  inputmode="numeric"
+                  minlength="6"
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                  autocomplete="one-time-code"
+                  placeholder="Enter 6-digit code"
+                  required
+                />
+              </div>
+
+              <div id="emailVerificationMessage" class="security-message"></div>
+
+              <button type="submit" class="btn btn-green">
+                Verify New Email
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- PHONE -->
+      <!-- ================================================= -->
+
+      <section class="security-section">
+        <div class="security-section-header">
+          <div>
+            <h2>Phone Number</h2>
+
+            <p>
+              Manage the phone number associated with your AgriConnect account.
+            </p>
+          </div>
+        </div>
+
+        <div class="dashboard-card security-card">
+          <!-- CURRENT PHONE -->
+
+          <div class="security-current-value">
+            <span> Current phone </span>
+
+            <strong id="currentPhone"> Loading... </strong>
+
+            <span id="phoneVerificationBadge" class="verification-badge"></span>
+          </div>
+
+          <button id="startPhoneChangeBtn" class="btn" type="button">
+            Change Phone
+          </button>
+
+          <!-- ================================================= -->
+          <!-- PHONE CHANGE -->
+          <!-- ================================================= -->
+
+          <div id="phoneChangePanel" class="security-change-panel" hidden>
+            <form id="phoneChangeForm">
+              <div class="form-group">
+                <label for="newPhone"> New Phone Number </label>
+
+                <input
+                  type="tel"
+                  id="newPhone"
+                  name="newPhone"
+                  inputmode="numeric"
+                  pattern="^(01|07)[0-9]{8}$"
+                  minlength="10"
+                  maxlength="10"
+                  autocomplete="tel"
+                  placeholder="0712345678"
+                  required
+                />
+
+                <small>
+                  Enter exactly 10 digits, starting with 01 or 07.
+                </small>
+              </div>
+
+              <div id="phoneChangeMessage" class="security-message"></div>
+
+              <button type="submit" class="btn btn-green" id="sendPhoneCodeBtn">
+                Send Verification Code
+              </button>
+            </form>
+
+            <!-- ================================================= -->
+            <!-- PHONE VERIFICATION -->
+            <!-- ================================================= -->
+
+            <form
+              id="phoneVerificationForm"
+              class="verification-code-form"
+              hidden
+            >
+              <div class="form-group">
+                <label for="phoneVerificationCode"> Verification Code </label>
+
+                <input
+                  type="text"
+                  id="phoneVerificationCode"
+                  inputmode="numeric"
+                  minlength="6"
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                  autocomplete="one-time-code"
+                  placeholder="Enter 6-digit code"
+                  required
+                />
+              </div>
+
+              <div id="phoneVerificationMessage" class="security-message"></div>
+
+              <button type="submit" class="btn btn-green">
+                Verify New Phone
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================= -->
+    <!-- SCRIPTS -->
+    <!-- ================================================= -->
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/roleManager.js"></script>
+
+    <script src="../js/security.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Select Workspace - AgriConnect Africa</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/select-role.css" />
+  </head>
+
+  <body class="role-selection-page">
+    <main class="role-selection-container">
+      <section class="role-selection-header">
+        <p class="eyebrow">AGRICONNECT AFRICA</p>
+
+        <h1>
+          Welcome back,
+          <span id="user-name">User</span> 👋
+        </h1>
+
+        <p>Choose the workspace you would like to continue with.</p>
+      </section>
+
+      <section class="role-grid" id="role-grid" aria-live="polite">
+        <!-- Roles will be generated here -->
+      </section>
+
+      <p class="role-error" id="role-error" role="alert"></p>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/select-role.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Verification Review | AgriConnect</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h2>AgriConnect Admin</h2>
+
+      <div>
+        <a href="../dashboard/admin.html"> ← Back to Dashboard </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================================================= -->
+      <!-- PAGE HEADER -->
+      <!-- ================================================= -->
+
+      <section class="verification-review-header">
+        <div>
+          <p class="page-label">Verification Center</p>
+
+          <h1 id="application-name">Loading application...</h1>
+
+          <p id="application-type">Loading...</p>
+        </div>
+
+        <span id="application-status" class="verification-status pending">
+          ● Pending
+        </span>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- APPLICANT INFORMATION -->
+      <!-- ================================================= -->
+
+      <section class="admin-section">
+        <h2>Applicant Information</h2>
+
+        <div id="applicant-information" class="verification-details-grid">
+          <p>Loading applicant information...</p>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- CONTACT VERIFICATION -->
+      <!-- ================================================= -->
+
+      <section class="admin-section">
+        <h2>Contact Verification</h2>
+
+        <div id="contact-verification" class="verification-contact-grid">
+          <p>Loading verification status...</p>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- DOCUMENTS -->
+      <!-- ================================================= -->
+
+      <section class="admin-section">
+        <div class="section-header">
+          <div>
+            <h2>Submitted Documents</h2>
+
+            <p>Review the documents submitted by this applicant.</p>
+          </div>
+        </div>
+
+        <div id="documents-container" class="verification-documents">
+          <p>Loading documents...</p>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+      <!-- VERIFICATION HISTORY -->
+      <!-- ================================================= -->
+
+      <section class="admin-section">
+        <h2>Verification History</h2>
+
+        <div id="verification-history" class="verification-history">
+          <p>Loading verification history...</p>
+        </div>
+      </section>
+
+      <!-- ================================================= -->
+<!-- ADMIN DECISION -->
+<!-- ================================================= -->
+
+<section
+  class="admin-section verification-decision"
+  id="decision-section"
+  style="display: none;"
+>
+  <h2>Admin Decision</h2>
+
+  <p>
+    Review all submitted information before making a verification
+    decision.
+  </p>
+
+  <div class="decision-actions">
+
+    <button
+      type="button"
+      id="approve-btn"
+      class="btn btn-green"
+    >
+      ✓ Approve Verification
+    </button>
+
+    <button
+      type="button"
+      id="reject-btn"
+      class="btn btn-danger"
+    >
+      ✕ Reject Application
+    </button>
+
+  </div>
+
+  <!-- REJECTION FORM -->
+
+  <div
+    id="rejection-form"
+    class="rejection-form"
+    style="display: none;"
+  >
+
+    <h3>Reject Verification</h3>
+
+    <label for="rejection-reason">
+      Reason for rejection
+    </label>
+
+    <textarea
+      id="rejection-reason"
+      rows="5"
+      placeholder="Explain why this application cannot be approved..."
+    ></textarea>
+
+    <div class="decision-actions">
+
+      <button
+        type="button"
+        id="cancel-rejection-btn"
+        class="btn"
+      >
+        Cancel
+      </button>
+
+      <button
+        type="button"
+        id="confirm-rejection-btn"
+        class="btn btn-danger"
+      >
+        Reject Application
+      </button>
+
+    </div>
+
+  </div>
+
+  <p
+    id="decision-message"
+    class="form-message"
+  ></p>
+
+</section>
+
+    <!-- ================================================= -->
+    <!-- SCRIPTS -->
+    <!-- ================================================= -->
+
+    <script src="../js/authGuard.js"></script>
+
+    <script src="../js/config.js"></script>
+
+    <script src="../js/adminVerificationReview.js"></script>
+  </body>
+</html>

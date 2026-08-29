@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AgriConnect Africa</h1>
+
+      <h2 id="welcome"></h2>
+
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main>
+      <section>
+        <div
+          id="manage-users-card"
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/admin-users.html'"
+        >
+          <h3>Manage Users</h3>
+          <p>View and manage user accounts.</p>
+        </div>
+
+        <div
+          id="manage-orders-card"
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/admin-orders.html'"
+        >
+          <h3>Orders</h3>
+          <p>View incoming orders.</p>
+        </div>
+
+        <div
+          id="reports-card"
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/reports.html'"
+        >
+          <h3>Reports</h3>
+          <p>View system reports.</p>
+        </div>
+
+        <div
+          id="analytics-card"
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/admin-analytics.html'"
+        >
+          <h3>Platform Analytics</h3>
+          <p>View detailed platform performance, trends and statistics.</p>
+        </div>
+
+        <div
+          id="revenue-card"
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/revenue.html'"
+        >
+          <h3>Financial & Transaction Center</h3>
+          <p>Monitor revenue, transactions and financial reports.</p>
+        </div>
+
+        <div
+          id="administrator-management-card"
+          class="dashboard-card clickable-card"
+          style="display: none"
+          onclick="window.location.href = '../pages/admin-administrators.html'"
+        >
+          <h3>Administrator Management</h3>
+
+          <p>Create administrators and manage their permissions and access.</p>
+        </div>
+
+        <div
+          class="dashboard-card clickable-card"
+          onclick="window.location.href = '../pages/profile.html'"
+        >
+          <h3>Profile & Security</h3>
+          <p>Manage your account, password and security settings.</p>
+        </div>
+
+        <section
+          class="admin-section"
+          id="verification-section"
+          style="display: none"
+        >
+          <div class="section-header">
+            <div>
+              <h2>Verification Center</h2>
+
+              <p>
+                Review role-specific verification applications, documents and
+                professional credentials submitted by experts and suppliers.
+              </p>
+            </div>
+
+            <span class="verification-count" id="pending-verification-count">
+              0 Pending
+            </span>
+          </div>
+
+          <!-- ALWAYS AVAILABLE -->
+          <div class="verification-actions">
+            <button
+              type="button"
+              class="btn btn-green"
+              id="view-verification-btn"
+            >
+              View Verification Center
+            </button>
+          </div>
+
+          <div id="verification-list" class="verification-list">
+            <p class="loading-message">Loading verification requests...</p>
+          </div>
+        </section>
+
+        <section class="chart-section">
+          <h2>Monthly Revenue</h2>
+
+          <canvas id="monthlyRevenueChart"></canvas>
+        </section>
+
+        <section class="chart-section">
+          <h2>Order Status Distribution</h2>
+
+          <canvas id="orderStatusChart"></canvas>
+        </section>
+
+        <section class="chart-section">
+          <h2>Top 10 Best Selling Products</h2>
+
+          <canvas id="topProductsChart"></canvas>
+        </section>
+
+        <section class="table-section">
+          <h2>Recent Transactions</h2>
+
+          <div class="table-actions">
+            <button id="exportCSVBtn">Export CSV</button>
+
+            <button id="exportPDFBtn">Export PDF</button>
+          </div>
+
+          <div class="table-responsive">
+            <table id="transactionsTable">
+              <thead>
+                <tr>
+                  <th>Order #</th>
+                  <th>Buyer</th>
+                  <th>Seller</th>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="../js/authGuard.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/adminDashboard.js"></script>
+    <script src="../js/adminVerification.js"></script>
+  </body>
+</html>
